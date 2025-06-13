@@ -136,3 +136,51 @@ h1#titulo {
 #rodape a:hover::after {
   width: 100%;              /* anima de 0 → 100% no hover */
 }
+
+/*=============================================
+  RESPONSIVE: Mobile (até 600px de largura)
+=============================================*/
+@media (max-width: 600px) {
+  /* Centraliza e reduz o header */
+  #cabeca {
+    position: static;
+    text-align: center;
+    margin: 1rem 0;
+    transform: none;
+  }
+  h1#titulo {
+    font-size: 6vw;   /* ajusta título para tela pequena */
+    left: auto; top: auto;
+  }
+
+  /* NavButtons vira uma barra abaixo do título */
+  #navButtons {
+    position: static;
+    margin: 0.5rem auto;
+    text-align: center;
+  }
+  .nav-btn {
+    display: inline-block;
+    margin: 0.25rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 4vw;
+  }
+
+  /* Timer ocupa quase toda a largura */
+  #tempo {
+    padding: 0 1rem;
+  }
+  .timerDisplay {
+    font-size: 12vw;  /* maior responsividade no timer */
+    word-break: break-word;
+  }
+
+  /* Rodapé mais discreto */
+  #rodape {
+    position: static;
+    margin: 1rem 0;
+    font-size: 14px;
+    text-align: center;
+    transform: none;
+  }
+}

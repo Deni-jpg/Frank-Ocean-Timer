@@ -156,7 +156,7 @@ h1#titulo {
   /* NavButtons vira uma barra abaixo do título */
   #navButtons {
     position: static;
-    margin: 1rem auto;
+    margin: 0.5rem auto;
     text-align: center;
   }
   .nav-btn {
