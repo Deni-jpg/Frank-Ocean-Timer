@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frank Ocean Timer</title>
+    <!-- CSS global, comum a todas as abas -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+  <!-- CSS específico por álbum, carregado somente na rota ativa -->
+  {% if selected == 'blonde' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/blonde.css') }}">
+  {% elif selected == 'endless' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/endless.css') }}">
+  {% elif selected == 'channel-orange' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/channel-orange.css') }}">
+  {% endif %}
+  <script src="{{ url_for('static', filename='js/timer.js') }}" defer></script>
+</head>
+<body>
+  <div id="cabeca">
+    <h1 id="titulo">FRANK OCEAN TIMER</h1>
+  </div>
+
+    <!-- navegação por abas -->
+    <div id="navButtons">
+      {% for key, alb in albums.items() %}
+        <a
+          href="{{ url_for('album', album=key) }}"
+          class="nav-btn {{ key }}{% if key == selected %} active{% endif %}"
+        >
+          {{ alb.title }}
+        </a>
+      {% endfor %}
+    </div>
+  
+
+  <div id="tempo">
+    <h2>{{ album_title }}</h2>
+    <div
+      id="timerDisplay"
+      class="timerDisplay"
+      data-release-date="{{ release_date }}"
+    ></div>
+  </div>
+
+  <div id="pe">
+    <footer id="rodape">
+      Made by
+      <a href="https://www.instagram.com/denii.jpg/" target="_blank">
+        Daniel Coelho
+      </a>
+      – 2025
+    </footer>
+  </div>
+</body>
+</html>

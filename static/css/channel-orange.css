@@ -1,0 +1,138 @@
+/* reset e estrutura básica */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #ed702d;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+    color: #ffffff;
+}
+
+/* cabeçalho */
+#cabeca {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+h1#titulo {
+  font-weight: 800;
+  font-size: 25px;
+  color: #ffffff;
+}
+
+/* botões de navegação */
+#navButtons {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+}
+
+/* estilo base dos botões existentes */
+.nav-btn {
+  position: relative;
+  margin: 0 0.5rem;
+  padding: 0.25rem 0;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  font-weight: 800;
+}
+
+/* pseudo-elemento para o underline “wavy” */
+.nav-btn::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.5s ease-in-out;
+}
+
+/* expande o underline em hover e quando a aba está ativa */
+.nav-btn:hover::after,
+.nav-btn.active::after {
+  width: 100%;
+}
+
+/* cores específicas por álbum */
+/* Blonde (padrão verde) */
+.nav-btn.blonde:hover,
+.nav-btn.blonde.active {
+  color: #49986B;
+}
+
+/* Endless (preto escuro) */
+.nav-btn.endless:hover,
+.nav-btn.endless.active {
+  color: #1e1e1e;
+}
+
+/* Channel Orange (laranja) */
+.nav-btn.channel-orange:hover,
+.nav-btn.channel-orange.active {
+  color: #ffffff;
+}
+
+/* área do timer */
+#tempo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.timerDisplay {
+  font-size: 10vw;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* rodapé */
+#rodape {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 500;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+/* efeito de traço crescente no link do Instagram no rodapé */
+#rodape a {
+  position: relative;       /* necessário para posicionar o ::after */
+  color: #ffffff;              /* cor inicial do texto */
+  text-decoration: none;    /* remove o underline padrão */
+}
+
+#rodape a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;             /* ajusta a distância do traço ao texto */
+  width: 0;                 /* começa “fechado” */
+  height: 2px;              /* espessura do traço */
+  background-color:#ffffff;/* cor do traço */
+  transition: width 0.4s ease-in-out;
+}
+
+#rodape a:hover::after {
+  width: 100%;              /* anima de 0 → 100% no hover */
+}
