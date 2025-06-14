@@ -39,17 +39,17 @@ A real-time counter showing how long it’s been since Frank Ocean released an a
 
 2. Create a branch for your feature or fix: 
    ```bash
-   git checkout -b feature/minha-mudanca
+   git checkout -b feature/my-change
    ```
    
 3. **Commit** your changes with **clear messages**:
    ```bash
-   git commit -m "Descrição da mudança"
+   git commit -m "Brief description of the change"
    ```
 
 4. **Push** to **your fork**:
    ```bash
-   git push origin feature/minha-mudanca
+   git push origin feature/my-change
    ```
 
 5. Open a **Pull Request** for **review**!.
