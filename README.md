@@ -1,6 +1,6 @@
 # Frank-Ocean-Timer
 
-Um contador em tempo real que exibe há quanto tempo Frank Ocean não lança um álbum. Permite alternar entre as abas **Blonde**, **Endless** e **Channel Orange**, mantendo estilo e cores próprios para cada álbum. Totalmente responsivo para desktop e dispositivos móveis.
+Um contador em tempo real que exibe há quanto tempo Frank Ocean não lança um álbum (volta Francisco Oceano!!!). Permite alternar entre as abas **Blonde**, **Endless** e **Channel Orange**, mantendo as cores próprias para cada álbum. É um site responsivo para desktop e dispositivos móveis.
 
 ---
 
