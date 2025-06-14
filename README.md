@@ -1,6 +1,6 @@
 # Frank-Ocean-Timer
 
-You can check my website here: https://frank-ocean-timer.onrender.com/blonde
+You can check my website <a href="https://frank-ocean-timer.onrender.com/blonde" target="_blank" rel="noopener noreferrer">here</a>!
 
 A real-time counter showing how long it’s been since Frank Ocean released an album (come back please!!!). Switch between the **Blonde**, **Endless**, and **Channel Orange** tabs, each with its own color theme. A website responsive for desktop and mobile devices.
 
