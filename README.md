@@ -1,55 +1,77 @@
-# Frank-Ocean-Timer
+# 👱🏾‍♂️ Frank Ocean Timer
 
-You can check my website <a href="https://frank-ocean-timer.onrender.com/blonde" target="_blank" rel="noopener noreferrer">here</a>!
+A sleek, real-time counter tracking exactly how long it's been since Frank Ocean last blessed us with an album. This project features a minimalist UI with dynamic themes that change based on the selected era.
 
-A real-time counter showing how long it’s been since Frank Ocean released an album (come back please!!!). Switch between the **Blonde**, **Endless**, and **Channel Orange** tabs, each with its own color theme. A website responsive for desktop and mobile devices.
-
----
-
-## Features
-
-- **Three tabs**: select the album you want to view the corresponding timer  
-- **Dynamic timer**: days, hours, minutes, and seconds since release  
-- **Custom styling**: each tab applies a distinct color scheme  
-- **Responsive design**: adapts automatically to different screen widths  
+You can check my website <a href="https://frank-ocean-timer.vercel.app/blonde" target="_blank" rel="noopener noreferrer">here</a>!
 
 ---
 
-## Technologies
+## ✨ Features
 
-- **Back-end**: Python 3 + [Flask](https://flask.palletsprojects.com/)  
-- **Front-end**: HTML5, CSS3, vanilla JavaScript  
-- **HTTP server**: [Gunicorn](https://gunicorn.org/)  
-- **Deployment**: [Render](https://render.com)
-
----
-
-## Prerequisites
-
-- Python 3.8 or higher  
-- pip
+- **Album Selection**: Switch between **Blonde**, **Endless**, and **Channel Orange**.
+- **Dynamic Theming**: The entire UI (backgrounds, buttons, accents) adapts to the aesthetic of the chosen album.
+- **Precision Tracking**: Live counter showing Years, Months, Days, and Seconds since release.
+- **Responsive Design**: Fully optimized for mobile, tablet, and desktop.
 
 ---
 
-## Contribution
+## 🛠️ Tech Stack
 
-1. **Fork** this repository:  
+- **Back-end**: [Python 3.12](https://www.python.org/) + [Flask](https://flask.palletsprojects.com/) (Serverless)
+- **Front-end**: HTML5, Modern CSS3, Vanilla JavaScript
+- **Deployment**: [Vercel](https://vercel.com)
+- **Architecture**: Serverless Functions
+
+---
+
+## 🚀 Local Development
+
+1. **Clone the repository**:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/frank-ocean-timer.git
-
-2. Create a branch for your feature or fix: 
-   ```bash
-   git checkout -b feature/my-change
-   ```
-   
-3. **Commit** your changes with **clear messages**:
-   ```bash
-   git commit -m "Brief description of the change"
+   git clone [https://github.com/Deni-jpg/Frank-Ocean-Timer.git](https://github.com/Deni-jpg/Frank-Ocean-Timer.git)
+   cd Frank-Ocean-Timer
    ```
 
-4. **Push** to **your fork**:
-   ```bash
-   git push origin feature/my-change
-   ```
+1.  **Set up a virtual environment**:
 
-5. Open a **Pull Request** for **review**!.
+    Bash
+
+    ```
+    python -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    ```
+
+2.  **Install dependencies**:
+
+    Bash
+
+    ```
+    pip install -r requirements.txt
+    ```
+
+3.  **Run the app**:
+
+    Bash
+
+    ```
+    python api/index.py
+    ```
+
+* * * * *
+
+🤝 Contributing
+---------------
+
+1.  **Fork** the project.
+
+2.  Create your **Feature Branch** (`git checkout -b feature/AmazingFeature`).
+
+3.  **Commit** your changes (`git commit -m 'Add some AmazingFeature'`).
+
+4.  **Push** to the branch (`git push origin feature/AmazingFeature`).
+
+5.  Open a **Pull Request**.
+
+* * * * *
+
+<p align="center"> Built with ☕ and a lot of patience waiting for the next album. </p>
