@@ -1,0 +1,17 @@
+# Ambiente Virtual do Python
+.venv/
+venv/
+ENV/
+
+# Node (se você usou npm para o Vercel CLI)
+node_modules/
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Vercel
+.vercel/
+
+# Variáveis de ambiente (Segredos)
+.env

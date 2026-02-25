@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 /* reset e estrutura básica */
 html, body {
   height: 100%;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 body {
@@ -26,9 +28,11 @@ h2 {
 }
 
 h1#titulo {
-  font-weight: 800;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
   font-size: 25px;
   color: #49986B;
+  letter-spacing: 0.08em;
 }
 
 /* botões de navegação */
@@ -51,7 +55,7 @@ h1#titulo {
   font-weight: 800;
 }
 
-/* pseudo-elemento para o underline “wavy” */
+/* pseudo-elemento para o underline */
 .nav-btn::after {
   content: '';
   position: absolute;
@@ -63,26 +67,22 @@ h1#titulo {
   transition: width 0.5s ease-in-out;
 }
 
-/* expande o underline em hover e quando a aba está ativa */
 .nav-btn:hover::after,
 .nav-btn.active::after {
   width: 100%;
 }
 
 /* cores específicas por álbum */
-/* Blonde (padrão verde) */
 .nav-btn.blonde:hover,
 .nav-btn.blonde.active {
   color: #49986B;
 }
 
-/* Endless (preto escuro) */
 .nav-btn.endless:hover,
 .nav-btn.endless.active {
   color: #1e1e1e;
 }
 
-/* Channel Orange (laranja) */
 .nav-btn.channel-orange:hover,
 .nav-btn.channel-orange.active {
   color: #ed702d;
@@ -105,20 +105,22 @@ h1#titulo {
 
 /* rodapé */
 #rodape {
+  font-family: 'Space Grotesk', sans-serif;
   position: absolute;
   bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
-  font-weight: 500;
+  font-weight: 300;
   font-size: 20px;
-  color: #49986B
+  color: #49986B;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
 }
 
-/* efeito de traço crescente no link do Instagram no rodapé */
 #rodape a {
-  position: relative;       /* necessário para posicionar o ::after */
-  color: #49986B;              /* cor inicial do texto */
-  text-decoration: none;    /* remove o underline padrão */
+  position: relative;
+  color: #49986B;
+  text-decoration: none;
   font-weight: bold;
 }
 
@@ -126,61 +128,74 @@ h1#titulo {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -3px;             /* ajusta a distância do traço ao texto */
-  width: 0;                 /* começa “fechado” */
-  height: 2px;              /* espessura do traço */
-  background-color: #49986B;/* cor do traço */
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: #49986B;
   transition: width 0.4s ease-in-out;
 }
 
 #rodape a:hover::after {
-  width: 100%;              /* anima de 0 → 100% no hover */
+  width: 100%;
 }
 
 /*=============================================
   RESPONSIVE: Mobile (até 600px de largura)
 =============================================*/
 @media (max-width: 600px) {
-  /* Centraliza e reduz o header */
+  body {
+    min-height: 100dvh;
+    padding: 0;
+    justify-content: space-between;
+  }
+
   #cabeca {
     position: static;
     text-align: center;
-    margin: 1rem 0;
-    transform: none;
-  }
-  h1#titulo {
-    font-size: 6vw;   /* ajusta título para tela pequena */
-    left: auto; top: auto;
+    padding-top: 1rem;
   }
 
-  /* NavButtons vira uma barra abaixo do título */
+  h1#titulo {
+    font-size: 5vw;
+  }
+
   #navButtons {
     position: static;
-    margin: 0.5rem auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
+    padding: 0.4rem 0;
+  }
+
+  .nav-btn {
+    margin: 0;
+    padding: 0.3rem 0.25rem;
+    font-size: 3.5vw;
+  }
+
+  #tempo {
+    flex: 1;
+    padding: 0 0.5rem;
+  }
+
+  .timerDisplay {
+    font-size: 11vw;
+    word-break: break-word;
     text-align: center;
   }
-  .nav-btn {
-    display: inline-block;
-    margin: 0.25rem;
-    padding: 0.5rem 0.75rem;
+
+  h2 {
     font-size: 4vw;
+    text-align: center;
   }
 
-  /* Timer ocupa quase toda a largura */
-  #tempo {
-    padding: 0 1rem;
-  }
-  .timerDisplay {
-    font-size: 12vw;  /* maior responsividade no timer */
-    word-break: break-word;
-  }
-
-  /* Rodapé mais discreto */
   #rodape {
     position: static;
-    margin: 1rem 0;
-    font-size: 14px;
+    font-size: 13px;
     text-align: center;
     transform: none;
+    white-space: normal;
+    padding-bottom: 1rem;
   }
 }
