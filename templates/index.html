@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="PUzqiyIz90BN9wOSVXy8DX6ynCwyzuJL_ajM-_C72kU" />
+  
+  <meta name="description" content="Track how long it's been since Frank Ocean last dropped an album. Real-time timer for Blonde, Endless, and Channel Orange.">
+  <meta name="keywords" content="Frank Ocean, Timer, Frank Ocean Timer, Album Tracker, Blonde, Endless, Channel Orange, New Music">
+  <meta name="author" content="Daniel Coelho">
+
+  <meta property="og:title" content="Frank Ocean Timer | How long has it been?">
+  <meta property="og:description" content="The definitive tracker for Frank Ocean's discography. See the exact time since his last masterpiece.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://frank-ocean-timer.vercel.app"> 
+  <meta property="og:image" content="{{ url_for('static', filename='img/og-image.jpg') }}">
+
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/world.png') }}">
+
   <title>Frank Ocean Timer</title>
-    <!-- CSS global, comum a todas as abas -->
+  
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
-  <!-- CSS específico por álbum, carregado somente na rota ativa -->
   {% if selected == 'blonde' %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   {% elif selected == 'endless' %}
@@ -23,7 +35,6 @@
     <h1 id="titulo">FRANK OCEAN TIMER</h1>
   </div>
 
-    <!-- navegação por abas -->
     <div id="navButtons">
       {% for key, alb in albums.items() %}
         <a
