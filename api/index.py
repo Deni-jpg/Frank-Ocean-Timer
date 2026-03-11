@@ -42,13 +42,19 @@ def album(album):
         release_date=release_iso
     )
 
+# Rota para o Sitemap
 @app.route('/sitemap.xml')
 def sitemap():
-    return send_from_directory(os.path.join(app.root_dir, 'static'), 'sitemap.xml')
+    # 'root_path' é o atributo correto que aponta para onde o app está rodando
+    # O '..' volta uma pasta (sai de 'api/') para achar a pasta 'static' na raiz
+    static_dir = os.path.join(app.root_path, '..', 'static')
+    return send_from_directory(static_dir, 'sitemap.xml')
 
+# Rota para o Robots.txt
 @app.route('/robots.txt')
 def robots():
-    return send_from_directory(os.path.join(app.root_dir, 'static'), 'robots.txt')
+    static_dir = os.path.join(app.root_path, '..', 'static')
+    return send_from_directory(static_dir, 'robots.txt')
 
 if __name__ == '__main__':
     app.run(debug=True)
