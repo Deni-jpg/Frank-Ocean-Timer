@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, send_from_directory, url_for
 from datetime import datetime
 import os
 
@@ -41,6 +41,10 @@ def album(album):
         album_title=data['title'],
         release_date=release_iso
     )
+
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory(os.path.join(app.root_dir, 'static'), 'sitemap.xml')
 
 if __name__ == '__main__':
     app.run(debug=True)

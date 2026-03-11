@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://frank-ocean-timer.vercel.app/</loc>
+    <lastmod>2025-05-20</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://frank-ocean-timer.vercel.app/album/endless</loc>
+    <lastmod>2025-05-20</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://frank-ocean-timer.vercel.app/album/channel-orange</loc>
+    <lastmod>2025-05-20</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
