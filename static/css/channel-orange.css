@@ -117,6 +117,7 @@ h1#titulo {
   position: relative;
   color: #ffffff;
   text-decoration: none;
+  font-weight: bold;
 }
 
 #rodape a::after {
