@@ -18,15 +18,17 @@
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/world.png') }}">
 
   <title>Frank Ocean Timer</title>
-  
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
   {% if selected == 'blonde' %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="canonical" href="https://frank-ocean-timer.vercel.app/">
   {% elif selected == 'endless' %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/endless.css') }}">
+    <link rel="canonical" href="https://frank-ocean-timer.vercel.app/album/endless">
   {% elif selected == 'channel-orange' %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/channel-orange.css') }}">
+    <link rel="canonical" href="https://frank-ocean-timer.vercel.app/album/channel-orange">
+
   {% endif %}
   <script src="{{ url_for('static', filename='js/timer.js') }}" defer></script>
 </head>
