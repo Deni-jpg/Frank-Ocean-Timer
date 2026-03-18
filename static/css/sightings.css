@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg:           #ffffff;
+  --text:         #1e1e1e;
+  --text-sub:     #555;
+  --text-muted:   #aaa;
+  --border:       #e8e8e8;
+  --border-mid:   #ddd;
+  --surface:      #fafafa;
+  --green:        #49986B;
+  --switch-bg:    #e0e0e0;
+  --switch-thumb: #fff;
+  --switch-icon:  #888;
+}
+
+html.dark {
+  --bg:           #0f0f0f;
+  --text:         #e8e4dc;
+  --text-sub:     #888;
+  --text-muted:   #444;
+  --border:       #1f1f1f;
+  --border-mid:   #2a2a2a;
+  --surface:      #161616;
+  --green:        #e8e4dc;
+  --switch-bg:    #3a3a3a;
+  --switch-thumb: #1e1e1e;
+  --switch-icon:  #e8e4dc;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+  cursor: none;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* padding-top empurra o conteudo para baixo do cabeçalho absoluto */
+  padding-top: 80px;
+}
+
+/* ── Cursor — tamanho reduzido ── */
+#vinyl-cursor {
+  position: fixed;
+  width: 32px; height: 32px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  left: -100px; top: -100px;
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.3));
+}
+#vinyl-cursor svg { display: block; animation: vinyl-spin 2.2s linear infinite; animation-play-state: paused; }
+#vinyl-cursor.spinning svg { animation-play-state: running; }
+#vinyl-cursor.clicking svg { transform: scale(0.85); }
+@keyframes vinyl-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* ── Cabeçalho — alinhado com o nav (mesmo top) ── */
+#cabeca {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transform: translateY(-50%);
+}
+
+h1#titulo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  color: var(--green);
+  letter-spacing: 0.08em;
+  transition: color 0.3s;
+  line-height: 1;
+}
+
+/* ── Nav — idêntico ao index.html ── */
+#navButtons {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  display: flex;
+  align-items: center;
+  transform: translateY(-50%);
+}
+
+.nav-btn {
+  position: relative;
+  margin: 0 0.5rem;
+  padding: 0.25rem 0;
+  color: var(--green);
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  font-weight: 800;
+  cursor: none;
+}
+
+.nav-btn::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -3px;
+  width: 0; height: 2px;
+  background-color: currentColor;
+  transition: width 0.5s ease-in-out;
+}
+
+.nav-btn:hover::after         { width: 100%; }
+/* light mode */
+.nav-btn.blonde:hover         { color: #49986B; }
+.nav-btn.endless:hover        { color: #1e1e1e; }
+.nav-btn.channel-orange:hover { color: #ed702d; }
+/* dark mode — cores específicas por álbum */
+html.dark .nav-btn.blonde:hover         { color: #49986B; }
+html.dark .nav-btn.endless:hover        { color: #e8e4dc; }
+html.dark .nav-btn.channel-orange:hover { color: #ed702d; }
+
+.nav-sightings {
+  font-size: 0.7em;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #999;
+  border-left: 1px solid var(--border-mid);
+  padding: 0.15rem 0 0.15rem 1rem;
+  margin-left: 0.75rem;
+  transition: color 0.3s;
+  cursor: none;
+}
+.nav-sightings:hover,
+.nav-sightings.active { color: var(--text); }
+
+/* ── Theme switch ── */
+#themeToggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: none;
+  margin-left: 1.25rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.switch-track {
+  display: flex;
+  align-items: center;
+  width: 46px; height: 24px;
+  border-radius: 999px;
+  background: var(--switch-bg);
+  padding: 2px;
+  transition: background 0.3s;
+}
+
+.switch-thumb {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--switch-thumb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--switch-icon);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
+  transform: translateX(0);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s;
+}
+
+html.dark .switch-thumb { transform: translateX(22px); }
+.icon-moon { display: none; }
+.icon-sun  { display: block; }
+html.dark .icon-sun  { display: none; }
+html.dark .icon-moon { display: block; }
+
+/* ── Conteúdo ── */
+#conteudo {
+  flex: 1;
+  padding: 40px 40px 60px;
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.last-seen {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.9rem 1.25rem;
+  margin-bottom: 2rem;
+  background: var(--surface);
+  flex-wrap: wrap;
+}
+.ls-dot   { width: 6px; height: 6px; border-radius: 50%; background: var(--text-muted); flex-shrink: 0; }
+.ls-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; }
+.ls-value { font-size: 15px; font-weight: 500; color: var(--text); }
+.ls-ago   { margin-left: auto; font-size: 11px; color: var(--text-muted); white-space: nowrap; }
+
+/* ── Filtros ── */
+#filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-mid);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: none;
+  transition: all 0.2s;
+}
+.filter-btn:hover                      { border-color: var(--text-muted); color: var(--text); }
+.filter-btn.active                     { background: var(--text); border-color: var(--text); color: var(--bg); }
+.filter-btn[data-tag="live"].active    { background: #1a3a5c; border-color: #1a3a5c; color: #7ec8f0; }
+.filter-btn[data-tag="music"].active   { background: #0e2018; border-color: #1a4030; color: #5fc49a; }
+.filter-btn[data-tag="public"].active  { background: #2a1a3a; border-color: #3d2255; color: #c49af0; }
+.filter-btn[data-tag="ghost"].active   { background: var(--surface); border-color: var(--border-mid); color: var(--text-muted); }
+
+/* ── Timeline ── */
+.timeline { position: relative; padding-left: 1.75rem; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 10px; bottom: 10px;
+  width: 1px;
+  background: var(--border);
+}
+
+.event { position: relative; margin-bottom: 2.5rem; }
+.event::before {
+  content: '';
+  position: absolute;
+  left: -1.75rem; top: 9px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--border);
+  border: 1px solid var(--border-mid);
+  transform: translateX(-3px);
+  transition: background 0.2s, border-color 0.2s;
+}
+.event:hover::before { background: var(--green); border-color: var(--green); }
+
+.event-date  { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+.event-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 5px; line-height: 1.4; }
+.event-desc  { font-size: 14px; font-weight: 300; color: var(--text-sub); line-height: 1.7; }
+
+.event-tag {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+.event-tag.live   { background: #e8f4fc; color: #1a6a9a; border: 1px solid #b8d8f0; }
+.event-tag.music  { background: #f0f8f3; color: #49986B; border: 1px solid #c8e6d5; }
+.event-tag.public { background: #f3effe; color: #7c4dbe; border: 1px solid #d4b8f0; }
+.event-tag.ghost  { background: var(--surface); color: var(--text-muted); border: 1px solid var(--border); }
+
+html.dark .event-tag.live   { background: #0d1e2e; color: #7ec8f0; border-color: #1a3a5c; }
+html.dark .event-tag.music  { background: #0e2018; color: #5fc49a; border-color: #1a4030; }
+html.dark .event-tag.public { background: #1e1028; color: #c49af0; border-color: #3d2255; }
+
+/* ── Rodapé — igual ao index.html mas em flow normal ── */
+#rodape {
+  font-family: 'Space Grotesk', sans-serif;
+  text-align: center;
+  padding: 25px 0;
+  font-weight: 300;
+  font-size: 20px;
+  color: var(--green);
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+  flex-shrink: 0;
+}
+
+#rodape a {
+  position: relative;
+  color: var(--green);
+  text-decoration: none;
+  font-weight: bold;
+  cursor: none;
+  transition: color 0.3s;
+}
+
+#rodape a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -3px;
+  width: 0; height: 2px;
+  background-color: var(--green);
+  transition: width 0.4s ease-in-out;
+}
+#rodape a:hover::after { width: 100%; }
+
+/* ── Tablet ── */
+@media (max-width: 900px) {
+  #conteudo { padding: 40px 24px 60px; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  body { min-height: 100dvh; padding-top: 0; }
+
+  #cabeca { position: static; text-align: center; padding-top: 1rem; }
+  h1#titulo { font-size: 5vw; }
+
+  #navButtons {
+    position: static;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
+    padding: 0.4rem 0.75rem;
+    align-items: center;
+  }
+
+  .nav-btn { margin: 0; padding: 0.3rem 0.25rem; font-size: 3.5vw; }
+
+  .nav-sightings {
+    border-left: none;
+    border-top: 1px solid var(--border-mid);
+    padding: 0.3rem 0.25rem 0;
+    margin-left: 0;
+    font-size: 3vw;
+    width: 100%;
+    text-align: center;
+  }
+
+  #themeToggle { margin-left: 0.25rem; }
+  .switch-track { width: 40px; height: 20px; }
+  .switch-thumb { width: 16px; height: 16px; }
+  html.dark .switch-thumb { transform: translateX(20px); }
+
+  #conteudo { padding: 1.5rem 1.25rem 2rem; }
+
+  .ls-value { font-size: 13px; }
+  .ls-ago   { margin-left: 0; width: 100%; }
+  .event-title { font-size: 15px; }
+
+  #rodape { font-size: 13px; padding: 1rem 0; }
+}
+
+@media (max-width: 380px) {
+  h1#titulo { font-size: 5.5vw; }
+  .nav-btn  { font-size: 3.8vw; }
+}

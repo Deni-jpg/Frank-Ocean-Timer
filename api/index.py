@@ -42,6 +42,10 @@ def album(album):
         release_date=release_iso
     )
 
+@app.route('/sightings')
+def sightings():
+    return render_template('sightings.html')
+
 # Rota para o Sitemap
 @app.route('/sitemap.xml')
 def sitemap():
