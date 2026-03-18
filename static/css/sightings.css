@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
-/* ── Tokens ── */
 :root {
   --bg:           #ffffff;
   --text:         #1e1e1e;
@@ -32,7 +31,6 @@ html.dark {
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body {
-  height: 100%;
   font-family: 'Space Grotesk', sans-serif;
   background: var(--bg);
   color: var(--text);
@@ -41,10 +39,12 @@ html, body {
 }
 
 body {
-  position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  /* padding-top empurra o conteudo para baixo do cabeçalho absoluto */
+  padding-top: 80px;
 }
 
 /* ── Cursor ── */
@@ -58,11 +58,11 @@ body {
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
 }
 #vinyl-cursor svg { display: block; animation: vinyl-spin 2.2s linear infinite; animation-play-state: paused; }
-#vinyl-cursor.spinning svg  { animation-play-state: running; }
-#vinyl-cursor.clicking svg  { transform: scale(0.85); }
+#vinyl-cursor.spinning svg { animation-play-state: running; }
+#vinyl-cursor.clicking svg { transform: scale(0.85); }
 @keyframes vinyl-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-/* ── Cabeçalho — igual ao index.html ── */
+/* ── Cabeçalho — idêntico ao index.html ── */
 #cabeca {
   position: absolute;
   top: 20px;
@@ -80,7 +80,7 @@ h1#titulo {
   transition: color 0.3s;
 }
 
-/* ── Nav — igual ao index.html ── */
+/* ── Nav — idêntico ao index.html ── */
 #navButtons {
   position: absolute;
   top: 40px;
@@ -116,7 +116,6 @@ h1#titulo {
 .nav-btn.endless:hover        { color: var(--text); }
 .nav-btn.channel-orange:hover { color: #ed702d; }
 
-/* sightings link — separado dos álbuns */
 .nav-sightings {
   font-size: 0.7em;
   font-weight: 500;
@@ -177,13 +176,12 @@ html.dark .icon-moon { display: block; }
 /* ── Conteúdo ── */
 #conteudo {
   flex: 1;
-  padding: 110px 40px 60px;
+  padding: 40px 40px 60px;
   max-width: 680px;
   width: 100%;
   margin: 0 auto;
 }
 
-/* last seen */
 .last-seen {
   display: flex;
   align-items: center;
@@ -195,7 +193,7 @@ html.dark .icon-moon { display: block; }
   background: var(--surface);
   flex-wrap: wrap;
 }
-.ls-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text-muted); flex-shrink: 0; }
+.ls-dot   { width: 6px; height: 6px; border-radius: 50%; background: var(--text-muted); flex-shrink: 0; }
 .ls-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; }
 .ls-value { font-size: 15px; font-weight: 500; color: var(--text); }
 .ls-ago   { margin-left: auto; font-size: 11px; color: var(--text-muted); white-space: nowrap; }
@@ -222,19 +220,8 @@ html.dark .icon-moon { display: block; }
   cursor: none;
   transition: all 0.2s;
 }
-
-.filter-btn:hover {
-  border-color: var(--text-muted);
-  color: var(--text);
-}
-
-.filter-btn.active {
-  background: var(--text);
-  border-color: var(--text);
-  color: var(--bg);
-}
-
-/* filtros com cor da tag quando activos */
+.filter-btn:hover                      { border-color: var(--text-muted); color: var(--text); }
+.filter-btn.active                     { background: var(--text); border-color: var(--text); color: var(--bg); }
 .filter-btn[data-tag="live"].active    { background: #1a3a5c; border-color: #1a3a5c; color: #7ec8f0; }
 .filter-btn[data-tag="music"].active   { background: #0e2018; border-color: #1a4030; color: #5fc49a; }
 .filter-btn[data-tag="public"].active  { background: #2a1a3a; border-color: #3d2255; color: #c49af0; }
@@ -242,7 +229,6 @@ html.dark .icon-moon { display: block; }
 
 /* ── Timeline ── */
 .timeline { position: relative; padding-left: 1.75rem; }
-
 .timeline::before {
   content: '';
   position: absolute;
@@ -251,12 +237,7 @@ html.dark .icon-moon { display: block; }
   background: var(--border);
 }
 
-.event {
-  position: relative;
-  margin-bottom: 2.5rem;
-  transition: opacity 0.2s;
-}
-
+.event { position: relative; margin-bottom: 2.5rem; }
 .event::before {
   content: '';
   position: absolute;
@@ -268,14 +249,12 @@ html.dark .icon-moon { display: block; }
   transform: translateX(-3px);
   transition: background 0.2s, border-color 0.2s;
 }
-
 .event:hover::before { background: var(--green); border-color: var(--green); }
 
 .event-date  { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
 .event-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 5px; line-height: 1.4; }
 .event-desc  { font-size: 14px; font-weight: 300; color: var(--text-sub); line-height: 1.7; }
 
-/* ── Tags ── */
 .event-tag {
   display: inline-block;
   margin-top: 8px;
@@ -287,64 +266,26 @@ html.dark .icon-moon { display: block; }
   font-weight: 500;
 }
 
-/* live — azul */
-.event-tag.live {
-  background: #e8f4fc;
-  color: #1a6a9a;
-  border: 1px solid #b8d8f0;
-}
-html.dark .event-tag.live {
-  background: #0d1e2e;
-  color: #7ec8f0;
-  border-color: #1a3a5c;
-}
+.event-tag.live   { background: #e8f4fc; color: #1a6a9a; border: 1px solid #b8d8f0; }
+.event-tag.music  { background: #f0f8f3; color: #49986B; border: 1px solid #c8e6d5; }
+.event-tag.public { background: #f3effe; color: #7c4dbe; border: 1px solid #d4b8f0; }
+.event-tag.ghost  { background: var(--surface); color: var(--text-muted); border: 1px solid var(--border); }
 
-/* music — verde */
-.event-tag.music {
-  background: #f0f8f3;
-  color: #49986B;
-  border: 1px solid #c8e6d5;
-}
-html.dark .event-tag.music {
-  background: #0e2018;
-  color: #5fc49a;
-  border-color: #1a4030;
-}
+html.dark .event-tag.live   { background: #0d1e2e; color: #7ec8f0; border-color: #1a3a5c; }
+html.dark .event-tag.music  { background: #0e2018; color: #5fc49a; border-color: #1a4030; }
+html.dark .event-tag.public { background: #1e1028; color: #c49af0; border-color: #3d2255; }
 
-/* public appearance — lilás */
-.event-tag.public {
-  background: #f3effe;
-  color: #7c4dbe;
-  border: 1px solid #d4b8f0;
-}
-html.dark .event-tag.public {
-  background: #1e1028;
-  color: #c49af0;
-  border-color: #3d2255;
-}
-
-/* ghost — neutro */
-.event-tag.ghost {
-  background: var(--surface);
-  color: var(--text-muted);
-  border: 1px solid var(--border);
-}
-
-/* ── Rodapé — igual ao index.html ── */
-#pe { width: 100%; }
-
+/* ── Rodapé — igual ao index.html mas em flow normal ── */
 #rodape {
   font-family: 'Space Grotesk', sans-serif;
-  position: absolute;
-  bottom: 25px;
-  left: 50%;
-  transform: translateX(-50%);
+  text-align: center;
+  padding: 25px 0;
   font-weight: 300;
   font-size: 20px;
   color: var(--green);
-  white-space: nowrap;
   letter-spacing: 0.05em;
   transition: color 0.3s;
+  flex-shrink: 0;
 }
 
 #rodape a {
@@ -364,17 +305,16 @@ html.dark .event-tag.public {
   background-color: var(--green);
   transition: width 0.4s ease-in-out;
 }
-
 #rodape a:hover::after { width: 100%; }
 
 /* ── Tablet ── */
 @media (max-width: 900px) {
-  #conteudo { padding: 110px 24px 80px; }
+  #conteudo { padding: 40px 24px 60px; }
 }
 
 /* ── Mobile ── */
 @media (max-width: 600px) {
-  body { min-height: 100dvh; justify-content: space-between; }
+  body { min-height: 100dvh; padding-top: 0; }
 
   #cabeca { position: static; text-align: center; padding-top: 1rem; }
   h1#titulo { font-size: 5vw; }
@@ -406,21 +346,13 @@ html.dark .event-tag.public {
   .switch-thumb { width: 16px; height: 16px; }
   html.dark .switch-thumb { transform: translateX(20px); }
 
-  #conteudo { padding: 1.5rem 1.25rem 4rem; }
+  #conteudo { padding: 1.5rem 1.25rem 2rem; }
 
   .ls-value { font-size: 13px; }
-  .ls-ago { margin-left: 0; width: 100%; }
-
+  .ls-ago   { margin-left: 0; width: 100%; }
   .event-title { font-size: 15px; }
 
-  #rodape {
-    position: static;
-    font-size: 13px;
-    text-align: center;
-    transform: none;
-    white-space: normal;
-    padding-bottom: 1rem;
-  }
+  #rodape { font-size: 13px; padding: 1rem 0; }
 }
 
 @media (max-width: 380px) {

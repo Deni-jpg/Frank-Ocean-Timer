@@ -32,7 +32,6 @@
     <a href="/endless"        class="nav-btn endless">Endless</a>
     <a href="/channel-orange" class="nav-btn channel-orange">Channel Orange</a>
     <a href="/sightings"      class="nav-sightings active">Sightings</a>
-
     <button id="themeToggle" aria-label="Toggle dark mode">
       <span class="switch-track">
         <span class="switch-thumb">
@@ -60,11 +59,10 @@
     <div class="last-seen">
       <span class="ls-dot"></span>
       <span class="ls-label">Last seen</span>
-      <span class="ls-value">Coachella Weekend 1 — April 2023</span>
-      <span class="ls-ago">~2 years ago</span>
+      <span class="ls-value">Payton Talbott vlog — March 2025</span>
+      <span class="ls-ago">~1 year ago</span>
     </div>
 
-    <!-- Filtros -->
     <div id="filters">
       <button class="filter-btn active" data-tag="all">All</button>
       <button class="filter-btn" data-tag="live">Live</button>
@@ -74,6 +72,13 @@
     </div>
 
     <div class="timeline">
+
+      <div class="event" data-tags="music">
+        <p class="event-date">March 2025</p>
+        <p class="event-title">Unreleased track — Payton Talbott vlog</p>
+        <p class="event-desc">UFC fighter Payton Talbott teased an unreleased Frank Ocean song in his YouTube vlog "BPPV IX" posted around March 14, 2025. The snippet, appearing around the 11-minute mark of his training and travel montage, fueled ongoing rumors that the two are dating after they were linked on Valentine's Day 2025.</p>
+        <span class="event-tag music">unreleased</span>
+      </div>
 
       <div class="event" data-tags="live">
         <p class="event-date">April 2023</p>
@@ -87,13 +92,6 @@
         <p class="event-title">Met Gala 2023 — New York</p>
         <p class="event-desc">Appeared on the red carpet. The internet collapsed for 24 hours. No music announced.</p>
         <span class="event-tag public">public appearance</span>
-      </div>
-
-      <div class="event" data-tags="music">
-        <p class="event-date">March 2025</p>
-        <p class="event-title">Unreleased track — Payton Moormeier video</p>
-        <p class="event-desc">An unreleased Frank Ocean track surfaced in a video posted by TikTok creator Payton Moormeier. The song had never been officially released. Fans debated whether it was a leak, a gift, or a hint. No statement from Frank.</p>
-        <span class="event-tag music">unreleased</span>
       </div>
 
       <div class="event" data-tags="live">
@@ -134,15 +132,12 @@
     </div>
   </div>
 
-  <div id="pe">
-    <footer id="rodape">
-      Made by <a href="https://linktr.ee/deni.jpg" target="_blank">Daniel Coelho</a> – 2026
-    </footer>
-  </div>
+  <footer id="rodape">
+    Made by <a href="https://linktr.ee/deni.jpg" target="_blank">Daniel Coelho</a> – 2026
+  </footer>
 
   <script src="{{ url_for('static', filename='js/vinyl-cursor.js') }}"></script>
   <script>
-    // dark mode
     const btn  = document.getElementById('themeToggle');
     const html = document.documentElement;
     if (localStorage.getItem('theme') === 'dark') html.classList.add('dark');
@@ -151,22 +146,15 @@
       localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
 
-    // filtros
     const filterBtns = document.querySelectorAll('.filter-btn');
     const events     = document.querySelectorAll('.event');
-
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
         const tag = btn.dataset.tag;
         events.forEach(ev => {
-          if (tag === 'all' || ev.dataset.tags === tag) {
-            ev.style.display = '';
-          } else {
-            ev.style.display = 'none';
-          }
+          ev.style.display = (tag === 'all' || ev.dataset.tags === tag) ? '' : 'none';
         });
       });
     });
