@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frank Ocean Timer | Sightings</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/sightings.css') }}" />
+</head>
+<body>
+
+  <div id="vinyl-cursor">
+    <svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="19" cy="19" r="18" fill="#111" stroke="#2a2a2a" stroke-width="0.8"/>
+      <circle cx="19" cy="19" r="15" fill="none" stroke="#1c1c1c" stroke-width="0.9"/>
+      <circle cx="19" cy="19" r="11" fill="none" stroke="#1c1c1c" stroke-width="0.9"/>
+      <circle cx="19" cy="19" r="7"  fill="none" stroke="#202020" stroke-width="0.7"/>
+      <path d="M19 1 A18 18 0 0 1 37 19" fill="none" stroke="#272727" stroke-width="1.2"/>
+      <path d="M19 37 A18 18 0 0 1 1 19"  fill="none" stroke="#272727" stroke-width="1.2"/>
+      <circle cx="19" cy="19" r="2.8" fill="#555"/>
+      <circle cx="19" cy="19" r="1.3" fill="#111"/>
+    </svg>
+  </div>
+
+  <div class="wrap">
+    <header>
+      <a href="/" class="logo">FRANK OCEAN TIMER</a>
+      <nav>
+        <a href="/blonde">Blonde</a>
+        <a href="/endless">Endless</a>
+        <a href="/channel-orange">Channel Orange</a>
+        <a href="/sightings" class="active">Sightings</a>
+      </nav>
+    </header>
+
+    <div class="last-seen">
+      <span class="ls-dot"></span>
+      <span class="ls-label">Last seen</span>
+      <span class="ls-value">Coachella Weekend 1 — April 2023</span>
+      <span class="ls-ago">~2 years ago</span>
+    </div>
+
+    <p class="section-label">Documented appearances</p>
+
+    <div class="timeline">
+
+      <div class="event">
+        <p class="event-date">April 2023</p>
+        <p class="event-title">Coachella 2023 — Weekend 1</p>
+        <p class="event-desc">
+          First live performance since 2017. Arrived an hour late; the original set featuring an ice rink and over 100 skaters was scrapped at the last minute after an ankle injury. Cut the show short due to curfew. Cancelled Weekend 2 on medical advice: two fractures and a sprain in his left leg.
+        </p>
+        <span class="event-tag live">live performance</span>
+      </div>
+
+      <div class="event">
+        <p class="event-date">May 2023</p>
+        <p class="event-title">Met Gala — New York</p>
+        <p class="event-desc">
+          Appeared on the red carpet. The internet collapsed for 24 hours. No music announced.
+        </p>
+        <span class="event-tag ghost">public appearance</span>
+      </div>
+
+      <div class="event">
+        <p class="event-date">December 2022</p>
+        <p class="event-title">PrEP+ Club Night — New York</p>
+        <p class="event-desc">
+          Spotted DJing at a private event. Low-quality recordings circulated on Twitter. The internet convinced itself a new album was imminent. It wasn't.
+        </p>
+        <span class="event-tag live">DJ set</span>
+      </div>
+
+      <div class="event">
+        <p class="event-date">September 2021</p>
+        <p class="event-title">Homer Launch — New York</p>
+        <p class="event-desc">
+          Launched his jewellery brand Homer with a minimalist lookbook. Communicated via press release. Zero interviews. Zero mention of new music.
+        </p>
+        <span class="event-tag ghost">homer</span>
+      </div>
+
+      <div class="event">
+        <p class="event-date">October 2019</p>
+        <p class="event-title">PrEP+ Parties — New York</p>
+        <p class="event-desc">
+          Organised a series of private parties in New York with DJs including Arca and Justice. The closest thing to a regular public appearance in recent years.
+        </p>
+        <span class="event-tag live">DJ / party</span>
+      </div>
+
+      <div class="event">
+        <p class="event-date">August 2017</p>
+        <p class="event-title">Flow Festival — Helsinki</p>
+        <p class="event-desc">
+          Last official concert before a 6-year hiatus. End of the post-Blonde tour. The last time Frank Ocean stepped on a stage and everything went as planned.
+        </p>
+        <span class="event-tag live">last concert (pre-2023)</span>
+      </div>
+
+      <div class="event">
+        <p class="event-date">August 2016</p>
+        <p class="event-title">Blonde + Endless — surprise release</p>
+        <p class="event-desc">
+          Within 24 hours, dropped Endless (Apple Music exclusive) and Blonde. The world stopped. The peak. Everything since has been waiting.
+        </p>
+        <span class="event-tag music">last album</span>
+      </div>
+
+    </div>
+
+    <footer>
+      <span>Made by <a href="https://linktr.ee/deni.jpg">Daniel Coelho</a> — 2026</span>
+      <span>Data compiled from public sources</span>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/vinyl-cursor.js') }}"></script>
+
+</body>
+</html>
