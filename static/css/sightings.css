@@ -47,28 +47,29 @@ body {
   padding-top: 80px;
 }
 
-/* ── Cursor ── */
+/* ── Cursor — tamanho reduzido ── */
 #vinyl-cursor {
   position: fixed;
-  width: 44px; height: 44px;
+  width: 32px; height: 32px;
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9999;
   left: -100px; top: -100px;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.3));
 }
 #vinyl-cursor svg { display: block; animation: vinyl-spin 2.2s linear infinite; animation-play-state: paused; }
 #vinyl-cursor.spinning svg { animation-play-state: running; }
 #vinyl-cursor.clicking svg { transform: scale(0.85); }
 @keyframes vinyl-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-/* ── Cabeçalho — idêntico ao index.html ── */
+/* ── Cabeçalho — alinhado com o nav (mesmo top) ── */
 #cabeca {
   position: absolute;
-  top: 20px;
+  top: 40px;
   left: 40px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  transform: translateY(-50%);
 }
 
 h1#titulo {
@@ -78,6 +79,7 @@ h1#titulo {
   color: var(--green);
   letter-spacing: 0.08em;
   transition: color 0.3s;
+  line-height: 1;
 }
 
 /* ── Nav — idêntico ao index.html ── */
@@ -89,6 +91,7 @@ h1#titulo {
   letter-spacing: 0.10em;
   display: flex;
   align-items: center;
+  transform: translateY(-50%);
 }
 
 .nav-btn {
@@ -112,9 +115,14 @@ h1#titulo {
 }
 
 .nav-btn:hover::after         { width: 100%; }
-.nav-btn.blonde:hover         { color: var(--green); }
-.nav-btn.endless:hover        { color: var(--text); }
+/* light mode */
+.nav-btn.blonde:hover         { color: #49986B; }
+.nav-btn.endless:hover        { color: #1e1e1e; }
 .nav-btn.channel-orange:hover { color: #ed702d; }
+/* dark mode — cores específicas por álbum */
+html.dark .nav-btn.blonde:hover         { color: #49986B; }
+html.dark .nav-btn.endless:hover        { color: #e8e4dc; }
+html.dark .nav-btn.channel-orange:hover { color: #ed702d; }
 
 .nav-sightings {
   font-size: 0.7em;
