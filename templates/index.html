@@ -28,8 +28,38 @@
   {% elif selected == 'channel-orange' %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/channel-orange.css') }}">
     <link rel="canonical" href="https://frank-ocean-timer.vercel.app/album/channel-orange">
-
   {% endif %}
+
+  <style>
+    .nav-btn.sightings {
+      color: #aaa;
+      font-weight: 500;
+      font-size: 0.72em;
+      letter-spacing: 0.18em;
+      border: 1px solid #ddd;
+      padding: 0.2rem 0.7rem;
+      border-radius: 2px;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+      vertical-align: middle;
+    }
+    .nav-btn.sightings::after { display: none; }
+    .nav-btn.sightings:hover {
+      color: #555;
+      border-color: #aaa;
+    }
+
+    @media (max-width: 600px) {
+      .nav-btn.sightings {
+        font-size: 3vw;
+        margin-left: 0;
+        padding: 0.25rem 0.6rem;
+      }
+    }
+  </style>
+
   <script src="{{ url_for('static', filename='js/timer.js') }}" defer></script>
 </head>
 <body>
@@ -37,17 +67,17 @@
     <h1 id="titulo">FRANK OCEAN TIMER</h1>
   </div>
 
-    <div id="navButtons">
-      {% for key, alb in albums.items() %}
-        <a
-          href="{{ url_for('album', album=key) }}"
-          class="nav-btn {{ key }}{% if key == selected %} active{% endif %}"
-        >
-          {{ alb.title }}
-        </a>
-      {% endfor %}
-    </div>
-  
+  <div id="navButtons">
+    {% for key, alb in albums.items() %}
+      <a
+        href="{{ url_for('album', album=key) }}"
+        class="nav-btn {{ key }}{% if key == selected %} active{% endif %}"
+      >
+        {{ alb.title }}
+      </a>
+    {% endfor %}
+    <a href="/sightings" class="nav-btn sightings">sightings ↗</a>
+  </div>
 
   <div id="tempo">
     <h2>{{ album_title }}</h2>
