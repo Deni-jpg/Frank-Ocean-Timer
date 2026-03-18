@@ -21,16 +21,18 @@
     </svg>
   </div>
 
-  <div class="wrap">
-    <header>
-      <a href="/" class="logo">FRANK OCEAN TIMER</a>
-      <nav>
-        <a href="/blonde">Blonde</a>
-        <a href="/endless">Endless</a>
-        <a href="/channel-orange">Channel Orange</a>
-        <a href="/sightings" class="active">Sightings</a>
-      </nav>
-    </header>
+  <div id="cabeca">
+    <h1 id="titulo">Frank Ocean Timer</h1>
+  </div>
+
+  <div id="navButtons">
+    <a href="/blonde"         class="nav-btn blonde">Blonde</a>
+    <a href="/endless"        class="nav-btn endless">Endless</a>
+    <a href="/channel-orange" class="nav-btn channel-orange">Channel Orange</a>
+    <a href="/sightings"      class="nav-btn sightings active">Sightings</a>
+  </div>
+
+  <div id="conteudo">
 
     <div class="last-seen">
       <span class="ls-dot"></span>
@@ -107,11 +109,10 @@
       </div>
 
     </div>
+  </div>
 
-    <footer>
-      <span>Made by <a href="https://linktr.ee/deni.jpg">Daniel Coelho</a> — 2026</span>
-      <span>Data compiled from public sources</span>
-    </footer>
+  <div id="rodape">
+    Made by <a href="https://linktr.ee/deni.jpg">Daniel Coelho</a> — 2026
   </div>
 
   <script src="{{ url_for('static', filename='js/vinyl-cursor.js') }}"></script>
