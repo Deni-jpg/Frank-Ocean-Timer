@@ -31,31 +31,33 @@
   {% endif %}
 
   <style>
-    .nav-btn.sightings {
-      color: #aaa;
+    /* botão sightings — separado visualmente dos álbuns */
+    .nav-sightings {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7em;
       font-weight: 500;
-      font-size: 0.72em;
       letter-spacing: 0.18em;
-      border: 1px solid #ddd;
-      padding: 0.2rem 0.7rem;
-      border-radius: 2px;
-      margin-left: 1.5rem;
+      text-transform: uppercase;
       text-decoration: none;
-      position: relative;
-      transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
-      vertical-align: middle;
+      color: #999;
+      border: none;
+      border-left: 1px solid #ddd;
+      padding: 0.15rem 0 0.15rem 1rem;
+      margin-left: 0.75rem;
+      transition: color 0.3s;
+      cursor: pointer;
     }
-    .nav-btn.sightings::after { display: none; }
-    .nav-btn.sightings:hover {
-      color: #555;
-      border-color: #aaa;
-    }
+    .nav-sightings:hover { color: #444; }
 
     @media (max-width: 600px) {
-      .nav-btn.sightings {
-        font-size: 3vw;
+      .nav-sightings {
+        border-left: none;
+        border-top: 1px solid #ddd;
+        padding: 0.3rem 0.25rem 0;
         margin-left: 0;
-        padding: 0.25rem 0.6rem;
+        font-size: 3vw;
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
@@ -76,7 +78,7 @@
         {{ alb.title }}
       </a>
     {% endfor %}
-    <a href="/sightings" class="nav-btn sightings">sightings ↗</a>
+    <a href="/sightings" class="nav-sightings">sightings</a>
   </div>
 
   <div id="tempo">
@@ -91,14 +93,12 @@
   <div id="pe">
     <footer id="rodape">
       Made by
-      <a href="https://linktr.ee/deni.jpg" target="_blank">
-        Daniel Coelho
-      </a>
+      <a href="https://linktr.ee/deni.jpg" target="_blank">Daniel Coelho</a>
       – 2026
     </footer>
   </div>
   <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
